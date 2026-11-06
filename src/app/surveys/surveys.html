@@ -1,0 +1,10 @@
+<h2>Your surveys</h2>
+<p>Ending soon surveys</p>
+<!-- <div>{{surveyService.surveyList().title}}</div> -->
+@for(item of surveylist(); track item.id; let index = $index) {
+    <div>{{item.title}}
+        <div>{{item.description}}</div>
+    </div>
+    
+}
+

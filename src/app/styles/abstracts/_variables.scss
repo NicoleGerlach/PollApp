@@ -1,0 +1,39 @@
+:root {
+
+$purple-900: #221227;
+$purple-800: #35273a;
+$purple-400: #8e7099;
+$purple-200: #faf5fe;
+$purple-100: #fefdff;
+
+$orange-100: #fee9d4;
+$orange-300: #ffcfa1;
+$orange-500: #ffb770;
+$orange-700: #d79451;
+
+$white:    #ffffff;
+$gray-200: #ededed;
+$gray-300: #d9d9d9;
+
+$gray-300-8:     rgba(217, 217, 217, 0.08);
+$purple-400-10:  rgba(142, 112, 153, 0.10);
+$orange-500-30:  rgba(255, 183, 112, 0.30);
+
+$color-bg:          $purple-200;
+$color-bg-dark:     $purple-900;
+$color-surface:     $purple-100;
+$color-surface-alt: $gray-200;
+
+$color-text:         $purple-800;
+$color-text-muted:   $purple-400;
+$color-text-inverse: $white;
+
+$color-accent:         $orange-500;
+$color-accent-hover:   $orange-700;
+$color-accent-subtle:  $orange-100;
+$color-accent-overlay: $orange-500-30;
+
+$color-border:        $gray-300;
+$color-border-subtle: $gray-300-8;
+$color-overlay:       $purple-400-10;
+}
