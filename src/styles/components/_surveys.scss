@@ -1,13 +1,13 @@
 @use '../abstracts/variables' as v;
 @use '../base/fonts';
+@use '../abstracts/mixins' as flex;
 
 .surveys {
     font-family: 'Mulish';
 }
 
 .surveys h2 {
-    display: flex;
-    justify-content: center;
+    @include flex.flex-justify-center;
     font-size: 50px;
     margin: 80px 0 48px;
 }
@@ -17,16 +17,16 @@
     font-weight: 500;
 }
 
-.surveys .card-grid {
+.surveys .card-horiz-grid {
     display: grid;
     grid-auto-flow: column;
     // grid-auto-columns: 250px;
-    // overflow-x: auto;
+    overflow-x: auto;
     gap: 16px;
     // -webkit-overflow-scrolling: touch;
 }
 
-.surveys .card {
+.surveys .card-horiz {
     width: 250px;
     height: 233px;
     display: flex;
@@ -61,9 +61,105 @@
         text-align: center;
         align-content: center;
         margin-top: auto;
-        margin-bottom: 24px;
+        margin-bottom: 0;
     }
 }
+
+.surveys .button {
+    &__box {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        margin: 48px 0 24px
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 14px;
+        gap: 16px;
+
+        & p {
+            margin: 0;
+        }
+    }
+
+    &__active {
+        background-color: v.$color-button-primary;
+    }
+
+    &__past {
+        background-color: v.$color-button-secondary;
+    }
+
+    &__active,
+    &__past {
+        padding: 2px 10px;
+        border-radius: 20px;
+        color: v.$color-text;
+    }
+
+    &__categories {
+        @include flex.flex-align-center;
+        gap: 9px;
+        font-size: 18px;
+        margin: 0;
+    }
+}
+
+.surveys .card-vert-grid {
+    display: grid;
+    grid-auto-flow: row;
+    // grid-auto-columns: 250px;
+    // overflow-y: auto;
+    gap: 16px;
+    // -webkit-overflow-scrolling: touch;
+}
+
+.surveys .card-vert {
+    // width: 250px;
+    // height: 233px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px 12px 21px;
+    background-color: v.$color-bg-card;
+    color: v.$color-text;
+    border-radius: 5px 50px 5px 5px;
+    // gap: 16px;
+
+    &__category {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 0 8px;
+        color: v.$color-text-orange;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        color: v.$color-text-inverse;
+        // margin: 0 0 75px;
+        margin: 0;
+    }
+
+    &__badge {
+        width: 109px;
+        height: 24px;
+        border-radius: 0 14px 0 0;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: v.$color-badge;
+        padding: 3px 6px;
+        text-align: center;
+        align-content: center;
+        align-self: flex-end;
+        margin: 24px 0 0;
+        // margin-top: auto;
+        // margin-bottom: 12px;
+    }
+}
+
 
 
 ::-webkit-scrollbar {

@@ -1,12 +1,30 @@
 <section class="surveys">
     <h2>Your surveys</h2>
     <h3>Ending soon surveys</h3>
-    <div class="card-grid">
+    <div class="card-horiz-grid">
         @for(item of surveylist(); track item.id; let index = $index) {
-        <article class="card">
-            <p class="card__category">{{item.title}}</p>
-            <h4 class="card__title">{{item.description}}</h4>
-            <p class="card__badge">Ends in {{item.endDate}} days</p>
+        <article class="card-horiz">
+            <p class="card-horiz__category">{{item.title}}</p>
+            <h4 class="card-horiz__title">{{item.description}}</h4>
+            <p class="card-horiz__badge">Ends in {{item.endDate}} days</p>
+        </article>
+        }
+    </div>
+    <article class="button__box">
+        <article class="button__wrapper">
+            <p class="button__active">Active survey</p>
+            <p class="button__past">Past survey</p>
+        </article>
+        <p class="button__categories">Sort by categories
+            <img src="assets/img/pollapp_arrow_drop_down.svg" alt="arrow down">
+        </p>
+    </article>
+    <div class="card-vert-grid">
+        @for(item of surveylist(); track item.id; let index = $index) {
+        <article class="card-vert">
+            <p class="card-vert__category">{{item.title}}</p>
+            <h4 class="card-vert__title">{{item.description}}</h4>
+            <p class="card-vert__badge">Ends in {{item.endDate}} days</p>
         </article>
         }
     </div>
