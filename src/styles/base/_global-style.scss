@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as v;
+@use 'fonts';
+
+body {
+    margin: 0;
+}
+
+h2 {
+     font-family: 'Nerko One';
+     color: v.$color-headline;
+}

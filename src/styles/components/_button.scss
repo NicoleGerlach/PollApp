@@ -1,0 +1,16 @@
+@use '../abstracts/variables' as v;
+@use '../base/fonts';
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: v.$color-button-primary;
+    color: v.$color-text;
+    font-family: 'Nokora';
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+}

@@ -1,10 +1,13 @@
-<h2>Your surveys</h2>
-<p>Ending soon surveys</p>
-<!-- <div>{{surveyService.surveyList().title}}</div> -->
-@for(item of surveylist(); track item.id; let index = $index) {
-    <div>{{item.title}}
-        <div>{{item.description}}</div>
+<section class="surveys">
+    <h2>Your surveys</h2>
+    <h3>Ending soon surveys</h3>
+    <div class="card-grid">
+        @for(item of surveylist(); track item.id; let index = $index) {
+        <article class="card">
+            <p class="card__category">{{item.title}}</p>
+            <h4 class="card__title">{{item.description}}</h4>
+            <p class="card__badge">Ends in {{item.endDate}} days</p>
+        </article>
+        }
     </div>
-    
-}
-
+</section>

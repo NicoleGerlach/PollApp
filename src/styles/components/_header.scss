@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as v;
+@use '../base/fonts';
+
+.header {
+    display: flex;
+    gap: 7px;
+}
+
+.header-text {
+    width: 50px;
+    text-transform: capitalize;
+    color: v.$color-headline;
+    font-family: 'Nerko One';
+    font-size: 26px;
+    line-height: 16px;
+    letter-spacing: 3%;
+    margin: 0;
+}

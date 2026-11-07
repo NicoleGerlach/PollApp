@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as v;
+@use '../base/fonts';
+
+body {
+    padding: 48px 16px 0 16px;
+    background-color: v.$color-bg-dark;
+    color: v.$color-text-inverse;
+}
+
+.home .headline {
+    font-size: 56px;
+    text-transform: capitalize;
+    margin: 54px 0 0 0;
+}
+
+.home .text {
+    font-family: 'Mulish';
+    font-size: 18px;
+    margin: 0;
+}
+
+.poll-app-img {
+    width: 100%;
+    margin: 24px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 54px;
+}
