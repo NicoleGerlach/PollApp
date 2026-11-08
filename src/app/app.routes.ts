@@ -5,6 +5,6 @@ import { CreateSurvey } from './create-survey/create-survey';
 
 export const routes: Routes = [
     { path: '', component: Home },
-    { path: 'survey', component: SingleSurvey },
+    { path: 'survey/:id', component: SingleSurvey },
     { path: 'create-survey', component: CreateSurvey },
 ];

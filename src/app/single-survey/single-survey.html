@@ -1,1 +1,14 @@
-<p>single-survey works!</p>
+<section class="singel-survey">
+    <p>Published</p>
+    <span>
+        <p>Ends on {{surveyDetail().endDate}}</p>
+        <p>Category: {{surveyDetail().title}}</p>
+    </span>
+    <h2>{{surveyDetail().description}}</h2>
+    <p>Hier fehlt noch eine Beschreibung</p>
+    <div class="question-box">
+        @for(item of question(); track item.id; let index = $index) {
+            <p>{{item.question}}</p>
+        }
+    </div>
+</section>

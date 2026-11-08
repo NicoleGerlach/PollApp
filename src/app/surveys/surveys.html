@@ -2,12 +2,12 @@
     <h2>Your surveys</h2>
     <h3>Ending soon surveys</h3>
     <div class="card-horiz-grid">
-        @for(item of surveylist(); track item.id; let index = $index) {
-        <article class="card-horiz">
+        @for(item of surveyList(); track item.id; let index = $index) {
+        <a [routerLink]="['/survey', item.id]" class="card-horiz">
             <p class="card-horiz__category">{{item.title}}</p>
             <h4 class="card-horiz__title">{{item.description}}</h4>
             <p class="card-horiz__badge">Ends in {{item.endDate}} days</p>
-        </article>
+        </a>
         }
     </div>
     <article class="button__box">
@@ -20,12 +20,12 @@
         </p>
     </article>
     <div class="card-vert-grid">
-        @for(item of surveylist(); track item.id; let index = $index) {
-        <article class="card-vert">
+        @for(item of surveyList(); track item.id; let index = $index) {
+        <a [routerLink]="['/survey', item.id]" class="card-vert">
             <p class="card-vert__category">{{item.title}}</p>
             <h4 class="card-vert__title">{{item.description}}</h4>
             <p class="card-vert__badge">Ends in {{item.endDate}} days</p>
-        </article>
+        </a>
         }
     </div>
 </section>

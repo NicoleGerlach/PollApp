@@ -4,6 +4,7 @@
 
 .surveys {
     font-family: 'Mulish';
+    margin-bottom: 31px;
 }
 
 .surveys h2 {
@@ -160,7 +161,10 @@
     }
 }
 
-
+.surveys .card-horiz,
+.surveys .card-vert {
+    cursor: pointer;
+}
 
 ::-webkit-scrollbar {
     display: none;

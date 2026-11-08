@@ -14,6 +14,6 @@ export class Home {
   surveyService = inject(SurveyService);
 
   ngOnInit() {
-    this.surveyService.getSurveys()
+    this.surveyService.getAllSurveys()
   }
 }
