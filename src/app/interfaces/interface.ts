@@ -10,11 +10,13 @@ export interface Question {
     surveyId: number;
     question: string;
     position: number;
+    multiple: boolean;
+    options?: Option[];
 }
 
 export interface Option {
     id: number;
     questionId: number;
-    optionText: string;
+    option: string;
     position: number;
 }

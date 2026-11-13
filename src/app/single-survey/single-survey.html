@@ -6,9 +6,32 @@
     </span>
     <h2>{{surveyDetail().description}}</h2>
     <p>Hier fehlt noch eine Beschreibung</p>
-    <div class="question-box">
-        @for(item of question(); track item.id; let index = $index) {
-            <p>{{item.question}}</p>
+    <ol class="question-box">
+        @for(question of question(); track question.id; let index = $index) {
+        <li>{{question.question}}
+            <div class="option-box">
+                @for(option of question.options ?? []; track option.id) {
+        <label>
+            @if (question.multiple) {
+            <input type="checkbox" [value]="option.id">
+            } @else {
+                <input type="radio" [name]="'question-' + question.id" [value]="option.id">
+            }
+            {{option.option}}
+        </label>
         }
-    </div>
+        </div>
+        </li>
+        }
+    </ol>
+    <!-- <ol class="question-box">
+        @for(item of question(); track item.id; let index = $index) {
+            <li>{{item.question}}</li>
+        }
+    </ol>
+    <div class="Option-box">
+        @for(item of option(); track item.id; let index = $index) {
+            <p>{{item.option}}</p>
+        }
+    </div> -->
 </section>

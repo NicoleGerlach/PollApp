@@ -13,12 +13,15 @@ export class SingleSurvey {
   surveyService = inject(SurveyService)
   surveyDetail= this.surveyService.surveyDetail
   question = this.surveyService.questionList
+  option = this.surveyService.optionList
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     console.log('Die ID ist:', id);
     if (!id) return;
     this.surveyService.getSurveysById(id);
-    this.surveyService.getQuestionsById(id);
+    this.surveyService.getQuestionsAndOptionsById(id)
+    // this.surveyService.getQuestionsById(id);
+    // this.surveyService.getOptionsById(id);
   }
 }

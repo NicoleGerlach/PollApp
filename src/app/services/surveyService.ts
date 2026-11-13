@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 // import { SurveyModel } from '../models/survey.model';
 import { createClient } from '@supabase/supabase-js'
-import { Survey, Question } from '../interfaces/interface';
+import { Survey, Question, Option } from '../interfaces/interface';
 
 @Injectable({
     providedIn: 'root'
@@ -18,6 +18,7 @@ export class SurveyService {
     })
 
     questionList = signal<Question[]>([])
+    optionList = signal<Option[]>([])
 
     constructor() {
         this.getAllSurveys()
@@ -41,13 +42,35 @@ export class SurveyService {
         this.surveyDetail.set(response.data as Survey)
     }
 
-    async getQuestionsById(id: number) {
+    // async getQuestionsById(id: number) {
+    //     let response = await this.supabase
+    //         .from('questions')
+    //         .select('*')
+    //         .eq('survey_id', id)
+    //     console.log('Survey id:', id)
+    //     console.log('Fragen:', response.data)
+    //     this.questionList.set(response.data ?? [] as Question[])
+    // }
+
+    async getQuestionsAndOptionsById(surveyId: number) {
         let response = await this.supabase
             .from('questions')
-            .select('*')
-            .eq('survey_id', id)
-        console.log('Seurvey id:', id)
+            .select('*, options(*)')
+            .eq('survey_id', surveyId)
+            .order('position', { ascending: true })
+        console.log('Survey id:', surveyId)
         console.log('Fragen:', response.data)
         this.questionList.set(response.data ?? [] as Question[])
     }
+
+
+    // async getOptionsById(id: number) {
+    //     let response = await this.supabase
+    //         .from('options')
+    //         .select('*')
+    //         .eq('survey_id', id)
+    //     console.log('Question id:', id)
+    //     console.log('Optionen:', response.data)
+    //     this.optionList.set(response.data ?? [] as Option[])
+    // }
 }
