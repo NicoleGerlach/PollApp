@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../services/surveyService';
+import { SurveyResults } from '../survey-results/survey-results';
+
 
 @Component({
-  imports: [],
+  imports: [SurveyResults],
   selector: 'app-single-survey',
   styleUrl: './single-survey.scss',
   templateUrl: './single-survey.html',
@@ -17,11 +19,12 @@ export class SingleSurvey {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('Die ID ist:', id);
     if (!id) return;
     this.surveyService.getSurveysById(id);
     this.surveyService.getQuestionsAndOptionsById(id)
-    // this.surveyService.getQuestionsById(id);
-    // this.surveyService.getOptionsById(id);
   }
+
+  // letterForOptions(index: number) {
+  //   return String.fromCharCode(65 + index) + '.';
+  // }
 }

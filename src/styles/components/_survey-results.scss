@@ -1,0 +1,24 @@
+@use '../abstracts/variables' as v;
+@use '../base/fonts';
+
+.survey-results {
+    margin: 0 30px
+}
+
+button {
+    border: unset;
+    background-color: unset;
+}
+
+.results-headline {
+    display: flex;
+
+    &__h2 {
+        color: v.$color-text;
+    }
+
+    &__live {
+        text-transform: uppercase;
+        color: v.$color-headline;
+    }
+}

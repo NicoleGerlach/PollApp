@@ -4,6 +4,12 @@
 .header {
     display: flex;
     gap: 7px;
+    background-color: v.$color-bg-bright;
+    padding: 48px 16px 54px 16px;
+}
+
+.header--home {
+    background-color: v.$color-bg-dark;
 }
 
 .header-text {

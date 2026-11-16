@@ -10,7 +10,8 @@
 .surveys h2 {
     @include flex.flex-justify-center;
     font-size: 50px;
-    margin: 80px 0 48px;
+    // margin: 80px 0 48px;
+    margin: unset;
 }
 
 .surveys h3 {
@@ -107,6 +108,12 @@
         font-size: 18px;
         margin: 0;
     }
+}
+
+.arrow {
+    width: 15px;
+    height: 8px;
+    fill: currentColor;
 }
 
 .surveys .card-vert-grid {

@@ -2,7 +2,11 @@
 @use '../base/fonts';
 
 body {
-    padding: 48px 16px 0 16px;
+    font-family: 'Mulish';
+}
+
+.home {
+    padding: 0 16px;
     background-color: v.$color-bg-dark;
     color: v.$color-text-inverse;
 }
@@ -10,11 +14,12 @@ body {
 .home .headline {
     font-size: 56px;
     text-transform: capitalize;
-    margin: 54px 0 0 0;
+    // margin: 54px 0 0 0;
+    margin: unset;
 }
 
 .home .text {
-    font-family: 'Mulish';
+    // font-family: 'Mulish';
     font-size: 18px;
     margin: 0;
 }

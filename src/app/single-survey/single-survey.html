@@ -1,37 +1,34 @@
-<section class="singel-survey">
-    <p>Published</p>
-    <span>
-        <p>Ends on {{surveyDetail().endDate}}</p>
-        <p>Category: {{surveyDetail().title}}</p>
-    </span>
-    <h2>{{surveyDetail().description}}</h2>
-    <p>Hier fehlt noch eine Beschreibung</p>
-    <ol class="question-box">
-        @for(question of question(); track question.id; let index = $index) {
-        <li>{{question.question}}
-            <div class="option-box">
-                @for(option of question.options ?? []; track option.id) {
-        <label>
-            @if (question.multiple) {
-            <input type="checkbox" [value]="option.id">
-            } @else {
-                <input type="radio" [name]="'question-' + question.id" [value]="option.id">
+<main class="single-survey">
+    <section class="questions">
+        <span>
+            <p>Published</p>
+            <button class="close-btn"></button>
+        </span>
+        <span class="date-category">
+            <p>Ends on {{surveyDetail().endDate}}</p>
+            <p>Category: {{surveyDetail().title}}</p>
+        </span>
+        <h2>{{surveyDetail().description}}</h2>
+        <p>Hier fehlt noch eine Beschreibung</p>
+        <ol class="question-box">
+            @for(question of question(); track question.id; let index = $index) {
+            <li>{{question.question}}
+                <div class="option-box">
+                    @for(option of question.options ?? []; track option.id; let i = $index) {
+                    <label>
+                        @if (question.multiple) {
+                        <input type="checkbox" [value]="option.id">
+                        } @else {
+                        <input type="radio" [name]="'question-' + question.id" [value]="option.id">
+                        }
+                        <span class="option-box__letter">{{ surveyService.letterForOptions(i)}}.</span>
+                        <span>{{ option.option }}</span>
+                    </label>
+                    }
+                </div>
+            </li>
             }
-            {{option.option}}
-        </label>
-        }
-        </div>
-        </li>
-        }
-    </ol>
-    <!-- <ol class="question-box">
-        @for(item of question(); track item.id; let index = $index) {
-            <li>{{item.question}}</li>
-        }
-    </ol>
-    <div class="Option-box">
-        @for(item of option(); track item.id; let index = $index) {
-            <p>{{item.option}}</p>
-        }
-    </div> -->
-</section>
+        </ol>
+    </section>
+    <app-survey-results></app-survey-results>
+</main>

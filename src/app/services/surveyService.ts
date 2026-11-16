@@ -73,4 +73,9 @@ export class SurveyService {
     //     console.log('Optionen:', response.data)
     //     this.optionList.set(response.data ?? [] as Option[])
     // }
+
+    letterForOptions(index: number) {
+        return String.fromCharCode(65 + index) + '';
+    }
+
 }

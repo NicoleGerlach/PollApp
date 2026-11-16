@@ -1,0 +1,21 @@
+<main class="survey-results">
+    <button>Close results</button>
+    <div class="results-headline">
+        <h2 class="results-headline__h2">Survey results
+            <span class="results-headline__live">live</span>
+        </h2>
+    </div>
+    <section>
+        <ol class="question-box">
+            @for(question of question(); track question.id; let index = $index) {
+            <li>{{question.question}}
+                <div class="option-box">
+                    @for(option of question.options ?? []; track option.id; let i = $index) {
+                    <span class="option-box__letter">{{ surveyService.letterForOptions(i) }}</span>
+                    }
+                </div>
+            </li>
+            }
+        </ol>
+    </section>
+</main>

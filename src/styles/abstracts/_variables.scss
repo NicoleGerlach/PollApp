@@ -17,9 +17,11 @@ $purple-300-8:     rgba(217, 217, 217, 0.08);
 $purple-400-10:  rgba(142, 112, 153, 0.10);
 $orange-500-30:  rgba(255, 183, 112, 0.30);
 
+$color-bg-bright:   $white;
 $color-bg:          $purple-200;
 $color-bg-card:     $purple-300-8;
 $color-bg-dark:     $purple-800;
+
 $color-surface:     $purple-100;
 $color-surface-alt: $gray-200;
 
@@ -39,3 +41,5 @@ $color-badge:       $orange-300;
 $color-text-orange: $orange-300;
 // $color-border-subtle: $gray-300-8;
 // $color-overlay:       $purple-400-10;
+
+$color-border-purple:   $purple-800

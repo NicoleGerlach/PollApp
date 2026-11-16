@@ -1,4 +1,82 @@
+@use '../abstracts/variables' as v;
+@use '../base/fonts';
+
+.single-survey {
+    background-color: v.$color-bg-bright;
+}
+
+.close-btn {
+  position: relative;
+  width: 39px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: v.$color-badge;      // das hell-Orange
+  border: none;
+  border-radius: 12px;                    // die abgerundeten Ecken
+  cursor: pointer;
+  padding: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: v.$color-bg-dark;   // das dunkle Lila
+    border-radius: 2px;                        // runde Enden
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+.date-category{
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+.questions {
+    background-color: v.$color-bg;
+    border-radius: 0 100px 0 0;
+    margin: 0 16px 56px;
+    padding: 50px 11.5px 40px;
+}
+
 .option-box {
     display: flex;
     flex-direction: column;
+
+    &__letter {
+      font-weight: 600;
+    }
+}
+
+.option-box label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    border: solid 2px v.$color-border-purple;
+    border-radius: 3px;
+    cursor: pointer;
 }
