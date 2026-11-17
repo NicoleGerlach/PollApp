@@ -1,7 +1,87 @@
-<main>
-    <p>draft</p>
-    <button>
-        <img src="/assets/img/pollapp_close.svg" alt="Close button">
-    </button>
-    <h2>create a new survey</h2>
+<main class="create-survey">
+    <div class="draft-box">
+        <p class="draft">Draft</p>
+        <button class="close-btn btn-draft"></button>
+    </div>
+    <h2 class="headline-create">Create a new survey</h2>
+    <form>
+        <section class="create-survey-form">
+            <div>
+                <div class="input-box">
+                    <label for="name">Survey name</label>
+                    <button class="btn-delete">
+                        <img src="/assets/img/pollapp_trash.svg" alt="">
+                    </button>
+                </div>
+                <input id="name" type="text">
+            </div>
+            <div>
+                <button class="category-btn">Choose category
+                    <svg class="arrow" viewBox="5 8 15 8" aria-hidden="true">
+                        <path
+                            d="M11.5843 15.617L5.26163 9.44681C5.17442 9.3617 5.10901 9.2695 5.06541 9.17021C5.0218 9.07092 5 8.96454 5 8.85106C5 8.62411 5.07994 8.42553 5.23983 8.25532C5.39971 8.08511 5.61047 8 5.87209 8H19.1279C19.3895 8 19.6003 8.08511 19.7602 8.25532C19.9201 8.42553 20 8.62411 20 8.85106C20 8.9078 19.9128 9.10638 19.7384 9.44681L13.4157 15.617C13.2703 15.7589 13.125 15.8582 12.9797 15.9149C12.8343 15.9716 12.6744 16 12.5 16C12.3256 16 12.1657 15.9716 12.0203 15.9149C11.875 15.8582 11.7297 15.7589 11.5843 15.617Z" />
+                    </svg>
+                </button>
+                <div class="input-box">
+                    <label for="date">Send end date</label>
+                    <button class="btn-delete">
+                        <img src="/assets/img/pollapp_trash.svg" alt="">
+                    </button>
+                </div>
+                <input id="date" type="number">
+            </div>
+            <div>
+                <div class="input-box">
+                    <label for="description">Describing text</label>
+                    <button class="btn-delete">
+                        <img src="/assets/img/pollapp_trash.svg" alt="">
+                    </button>
+                </div>
+                <textarea id="description" type="tex"></textarea>
+            </div>
+            <div>
+                <div class="input-box">
+                    <label for="first-question">1. Question</label>
+                    <button class="btn-delete">
+                        <img src="/assets/img/pollapp_trash.svg" alt="">
+                    </button>
+                </div>
+                <input id="first-question" type="tex">
+            </div>
+            <div class="multipe-answer-box">
+                <span>Answers</span>
+                <label for="multiple-answers" class="multiple-answers-label">
+                    <input type="checkbox" name="multiple-answers" id="">
+                    <span class="multiple-answers-text">Allow multiple answers.</span>
+                </label>
+            </div>
+            <div>
+                <div class="input-box">
+                    <label for="first-option">A.</label>
+                    <button class="btn-delete">
+                        <img src="/assets/img/pollapp_trash.svg" alt="">
+                    </button>
+                </div>
+                <input id="first-option" type="tex">
+            </div>
+            <div>
+                <div class="input-box">
+                    <label for="second-option">B.</label>
+                    <button class="btn-delete">
+                        <img src="/assets/img/pollapp_trash.svg">
+                    </button>
+                </div>
+                <input id="second-option" type="tex">
+            </div>
+            <button>Add answer
+                <img src="/assets/img/pollapp_add_circle.svg">
+            </button>
+            <button>Add next question</button>
+        </section>
+        <div class="btn-box-publish">
+            <button class="btn btn-publish">Publish
+                <img src="/assets/img/pollapp_confirm.svg">
+            </button>
+        </div>
+    </form>
 </main>

@@ -1,0 +1,122 @@
+@use '../abstracts/variables' as v;
+@use '../base/fonts';
+
+.create-survey {
+    background-color: v.$color-bg-dark;
+    height: 100vh;
+    border-radius: 5px 100px 5px 5px;
+    padding: 40px 25px 32px;
+}
+
+.draft-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.draft {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: v.$color-badge;
+    padding: 3px 12px 3px 8px;
+    margin: unset;
+    border-radius: 0 14px 0 0;
+}
+
+
+.btn-draft {
+    background-color: v.$color-button-close !important; // das hell-Orange
+
+    &::before,
+    &::after {
+        content: '';
+        background-color: v.$color-text-bright !important; // das dunkle Lila
+    }
+}
+
+.headline-create {
+    color: v.$color-text-orange-dark;
+    line-height: 42px;
+    margin: 16px 0 32px;
+    font-weight: 400;
+}
+
+.create-survey-form {
+    background-color: v.$color-bg-purple;
+    // margin: 32px 17px 48px;
+    padding: 40px 10px;
+    border-radius: 5px 80px 5px 5px;
+    color: v.$color-text-bright;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+
+input,
+textarea {
+    border-radius: 5px 20px 5px 5px;
+    height: 28px;
+    width: 90%;
+    border: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+.btn-delete {
+    padding-right: 20px;
+}
+
+.category-btn {
+    padding: unset;
+    height: 32px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: 8px 0 32px;
+    font-size: 18px;
+    color: v.$color-text-bright;
+}
+
+.multipe-answer-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.multiple-answers-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    border: solid 2px green;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.multiple-answers-text {
+    font-size: 14px;
+}
+
+.btn-box-publish {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &.btn-publish {
+        background-color: v.$color-button-primary;
+    }
+}
