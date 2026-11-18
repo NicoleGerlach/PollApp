@@ -2,7 +2,18 @@
 @use '../base/fonts';
 
 .single-survey {
-    background-color: v.$color-bg-bright;
+  background-color: v.$color-bg-bright;
+  color: v.$color-bg-dark;
+}
+
+.close-box {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 13px;
+}
+
+.published {
+  background-color: v.$color-button-primary;
 }
 
 .close-btn {
@@ -12,9 +23,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: v.$color-badge;      // das hell-Orange
+  background-color: v.$color-badge; // das hell-Orange
   border: none;
-  border-radius: 12px;                    // die abgerundeten Ecken
+  border-radius: 12px; // die abgerundeten Ecken
   cursor: pointer;
   padding: 0;
 
@@ -24,8 +35,8 @@
     position: absolute;
     width: 14px;
     height: 2px;
-    background-color: v.$color-bg-dark;   // das dunkle Lila
-    border-radius: 2px;                        // runde Enden
+    background-color: v.$color-bg-dark; // das dunkle Lila
+    border-radius: 2px; // runde Enden
   }
 
   &::before {
@@ -37,46 +48,126 @@
   }
 }
 
-
-.date-category{
-    display: flex;
-    justify-content: space-between;
+.date-category {
+  display: flex;
+  justify-content: space-between;
 }
 
 h2 {
-    font-size: 48px;
+  font-size: 48px;
+  line-height: 42px;
+  color: v.$color-text-orange-dark;
 }
 
 .questions {
-    background-color: v.$color-bg;
-    border-radius: 0 100px 0 0;
-    margin: 0 16px 56px;
-    padding: 50px 11.5px 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: v.$color-bg;
+  border-radius: 0 100px 0 0;
+  margin: 0 16px 56px;
+  padding: 50px 11.5px 40px;
+}
+
+.question-box {
+  padding-left: 4px;
+  margin: unset;
+  list-style: none;
+  counter-reset: question;
+
+  &__text {
+    margin: unset;
+    padding-left: 22px;
+  }
+
+  &__hint {
+    font-size: 14px;
+    font-weight: 400;
+    margin: unset;
+    padding: 3px 0 0 22px;
+  }
+}
+
+// li {
+//   margin-bottom: 24px;
+// }
+
+li,
+.option-box__letter {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .option-box {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 24px 8px;
 
-    &__letter {
-      font-weight: 600;
-    }
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 9px;
+  }
 }
 
 .option-box label {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
   cursor: pointer;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    margin: 0;
-    border: solid 2px v.$color-border-purple;
-    border-radius: 3px;
-    cursor: pointer;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin: 0 14px 0 0;
+  border: solid 2px v.$color-border-purple;
+  border-radius: 3px;
+  cursor: pointer;
+
+  position: relative;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: v.$color-checkbox-checked;
+  border: v.$color-checkbox-checked;
+}
+
+input[type="checkbox"]::after,
+input[type="radio"]::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid v.$color-bg-dark;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after {
+  opacity: 1;
+}
+
+.btn-complete {
+  margin: 0 11px 0 auto
+}
+
+.question-box>li {
+  position: relative;
+  // padding-left: 24px;      /* Platz für die Nummer */
+  counter-increment: question;
+}
+
+.question-box>li::before {
+  content: counter(question) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
 }

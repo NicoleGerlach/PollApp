@@ -1,4 +1,6 @@
 <section class="header" [class.header--home]="isHome()">
-  <img [src]="isHome() ? '/assets/img/pollapp_logo.svg' : '/assets/img/pollapp_logo_dark.svg'" alt="Logo">
+  <a routerLink="/">
+      <img [src]="isHome() ? '/assets/img/pollapp_logo.svg' : '/assets/img/pollapp_logo_dark.svg'" alt="Logo">
+  </a>
   <p class="header-text">poll app</p>
 </section>

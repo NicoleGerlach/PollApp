@@ -19,6 +19,8 @@ export class SurveyService {
 
     questionList = signal<Question[]>([])
     optionList = signal<Option[]>([])
+    optionId = signal<number>(0)
+    votes = signal<Map<number, number>>(new Map());
 
     constructor() {
         this.getAllSurveys()
@@ -42,16 +44,6 @@ export class SurveyService {
         this.surveyDetail.set(response.data as Survey)
     }
 
-    // async getQuestionsById(id: number) {
-    //     let response = await this.supabase
-    //         .from('questions')
-    //         .select('*')
-    //         .eq('survey_id', id)
-    //     console.log('Survey id:', id)
-    //     console.log('Fragen:', response.data)
-    //     this.questionList.set(response.data ?? [] as Question[])
-    // }
-
     async getQuestionsAndOptionsById(surveyId: number) {
         let response = await this.supabase
             .from('questions')
@@ -61,18 +53,41 @@ export class SurveyService {
         console.log('Survey id:', surveyId)
         console.log('Fragen:', response.data)
         this.questionList.set(response.data ?? [] as Question[])
+        this.getAnswersBySurveyId(surveyId);
     }
 
+    async getAnswersBySurveyId(surveyId: number) {
+        const response = await this.supabase
+            .from('answers')
+            .select('option_id')
+            .in('question_id', this.questionList().map(q => q.id));
 
-    // async getOptionsById(id: number) {
-    //     let response = await this.supabase
-    //         .from('options')
-    //         .select('*')
-    //         .eq('survey_id', id)
-    //     console.log('Question id:', id)
-    //     console.log('Optionen:', response.data)
-    //     this.optionList.set(response.data ?? [] as Option[])
-    // }
+        console.log('Antworten:', response.data);
+        this.countVotes(response.data ?? []);
+    }
+
+    countVotes(answers: { option_id: number }[]) {
+        const counts = new Map<number, number>();
+        for (const a of answers) {
+            counts.set(a.option_id, (counts.get(a.option_id) ?? 0) + 1);
+        }
+        this.votes.set(counts);
+    }
+
+    votesFor(optionId: number) {
+        return this.votes().get(optionId) ?? 0;
+    }
+
+    totalFor(question: Question) {
+        return (question.options ?? [])
+            .reduce((sum, o) => sum + this.votesFor(o.id), 0);
+    }
+
+    percent(question: Question, option: Option) {
+        const total = this.totalFor(question);
+        if (!total) return 0;
+        return (this.votesFor(option.id) / total) * 100;
+    }
 
     letterForOptions(index: number) {
         return String.fromCharCode(65 + index) + '';

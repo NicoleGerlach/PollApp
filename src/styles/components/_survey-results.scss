@@ -6,8 +6,14 @@
 }
 
 button {
+    display: flex;
+    align-items: center;
     border: unset;
     background-color: unset;
+    font-size: 18px;
+    font-weight: 700;
+    gap: 4px;
+    cursor: pointer;
 }
 
 .results-headline {
@@ -15,10 +21,71 @@ button {
 
     &__h2 {
         color: v.$color-text;
+        font-size: 32px;
+        padding: 24px 0 16px;
     }
 
     &__live {
         text-transform: uppercase;
-        color: v.$color-headline;
+        color: v.$color-text-orange-middle;
     }
+}
+
+.question-box {
+  padding-left: 4px;
+  margin: unset;
+  list-style: none;
+  counter-reset: question;
+}
+
+li,
+.option-box__letter {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.option-box {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 24px 8px;
+
+  &__evaluation {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__bar {
+    width: 90%;
+    height: 14px;
+    background-color: v.$color-surface-alt;
+    border-radius: 0 20px 20px 0;
+  }
+
+  &__fill {
+    background-color: v.$color-bar-filled;
+    height: 14px;
+    border-radius: inherit;
+    width: 50%;
+  }
+}
+
+.option-box label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.question-box>li {
+  position: relative;
+  // padding-left: 24px;      /* Platz für die Nummer */
+  counter-increment: question;
+}
+
+.question-box>li::before {
+  content: counter(question) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
 }

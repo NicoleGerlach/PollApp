@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SurveyService } from '../services/surveyService';
 import { SurveyResults } from '../survey-results/survey-results';
 
 
 @Component({
-  imports: [SurveyResults],
+  imports: [SurveyResults, RouterLink],
   selector: 'app-single-survey',
   styleUrl: './single-survey.scss',
   templateUrl: './single-survey.html',
@@ -23,8 +23,4 @@ export class SingleSurvey {
     this.surveyService.getSurveysById(id);
     this.surveyService.getQuestionsAndOptionsById(id)
   }
-
-  // letterForOptions(index: number) {
-  //   return String.fromCharCode(65 + index) + '.';
-  // }
 }

@@ -1,8 +1,9 @@
 <main class="single-survey">
     <section class="questions">
-        <span>
-            <p>Published</p>
-            <button class="close-btn"></button>
+        <span class="close-box">
+            <p class="btn-published-draft published">Published</p>
+            <a routerLink="/" class="close-btn"></a>
+            <!-- <button class="close-btn"></button> -->
         </span>
         <span class="date-category">
             <p>Ends on {{surveyDetail().endDate}}</p>
@@ -12,7 +13,11 @@
         <p>Hier fehlt noch eine Beschreibung</p>
         <ol class="question-box">
             @for(question of question(); track question.id; let index = $index) {
-            <li>{{question.question}}
+            <li>
+                <p class="question-box__text">{{question.question}}</p>
+                @if(question.multiple) {
+                    <p class="question-box__hint">More than one answers are possible.</p>
+                }
                 <div class="option-box">
                     @for(option of question.options ?? []; track option.id; let i = $index) {
                     <label>
@@ -22,13 +27,16 @@
                         <input type="radio" [name]="'question-' + question.id" [value]="option.id">
                         }
                         <span class="option-box__letter">{{ surveyService.letterForOptions(i)}}.</span>
-                        <span>{{ option.option }}</span>
+                        <span class="option-box__text">{{ option.option }}</span>
                     </label>
                     }
                 </div>
             </li>
             }
         </ol>
+        <a routerLink="/" class="btn btn-complete">Complete
+            <img src="/assets/img/pollapp_confirm.svg">
+        </a>
     </section>
     <app-survey-results></app-survey-results>
 </main>

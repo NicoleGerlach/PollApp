@@ -31,7 +31,7 @@
     &::before,
     &::after {
         content: '';
-        background-color: v.$color-text-bright !important; // das dunkle Lila
+        background-color: v.$color-status-draft !important; // das dunkle Lila
     }
 }
 
@@ -43,11 +43,13 @@
 }
 
 .create-survey-form {
+    display: flex;
+    flex-direction: column;
     background-color: v.$color-bg-purple;
     // margin: 32px 17px 48px;
     padding: 40px 10px;
     border-radius: 5px 80px 5px 5px;
-    color: v.$color-text-bright;
+    color: v.$color-status-draft;
 }
 
 .input-box {
@@ -82,7 +84,7 @@ textarea {
     gap: 14px;
     margin: 8px 0 32px;
     font-size: 18px;
-    color: v.$color-text-bright;
+    color: v.$color-status-draft;
 }
 
 .multipe-answer-box {

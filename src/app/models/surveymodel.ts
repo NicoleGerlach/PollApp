@@ -14,17 +14,33 @@ export class SurveyModel implements Survey {
     }
 }
 
-// // export class QuestionModel implements Questions {
-// //     id: number;
-// //     surveyId: number;
-// //     question: string;
-// //     position: number;
-// // }
+export class QuestionModel implements Question {
+    id: number;
+    surveyId: number;
+    question: string;
+    position: number;
+    multiple: boolean;
 
-// // export class OptionModel implements Options {
-// //     id: number;
-// //     questionId: number;
-// //     optionText: string;
-// //     position: number;
-// // }
+    constructor(data: Partial<Question> = {}) {
+        this.id = data.id ?? 0;
+        this.surveyId = data.surveyId ?? 0;
+        this.question = data.question ?? '';
+        this.position = data.position ?? 0;
+        this.multiple = data.multiple ?? false;
+    }
+}
+
+export class OptionModel implements Option {
+    id: number;
+    questionId: number;
+    option: string;
+    position: number;
+
+    constructor(data: Partial<Option> = {}) {
+        this.id = data.id ?? 0;
+        this.questionId = data.questionId ?? 0;
+        this.option = data.option ?? '';
+        this.position = data.position ?? 0;
+    }
+}
 
