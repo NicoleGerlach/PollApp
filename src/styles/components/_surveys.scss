@@ -116,6 +116,13 @@
     fill: currentColor;
 }
 
+.categories {
+    border: solid 2px white;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
 .surveys .card-vert-grid {
     display: grid;
     grid-auto-flow: row;

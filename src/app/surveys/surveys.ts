@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { SurveyService } from '../services/surveyService';
 import { RouterLink } from '@angular/router';
 
@@ -11,4 +11,9 @@ import { RouterLink } from '@angular/router';
 export class Surveys {
   surveyService = inject(SurveyService)
   surveyList = this.surveyService.surveyList
+  categoriesOpen = signal(false);
+
+  toggleCategories() {
+    this.categoriesOpen.update(open => !open);
+  }
 }
